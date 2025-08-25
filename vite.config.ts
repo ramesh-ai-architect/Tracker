@@ -11,10 +11,9 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
-  base:'/Tracker/',
+  base: "/Tracker/", // 👈 REQUIRED for GitHub Pages
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
