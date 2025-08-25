@@ -3,12 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=/Tracker/" />
-  </head>
-  <body>
-    <script>
-      var redirect = location.pathname.replace("/Tracker", "");
-      window.location.replace("/Tracker/" + redirect);
+    <script type="text/javascript">
+      // Redirect all requests to index.html (SPA support)
+      var redirectTo = "/Tracker/";
+      // Keep subpath (so /about → /Tracker/about)
+      if (location.pathname.length > 0) {
+        var path = location.pathname.replace("/Tracker", "");
+        redirectTo += path;
+      }
+      location.replace(redirectTo);
     </script>
-  </body>
+  </head>
+  <body></body>
 </html>
